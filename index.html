@@ -2,22 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Your Name – Resume</title>
+  <title>Tanmay Sutar — Resume</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Resumes of Tanmay Sutar">
   <style>
-    html, body { height: 100%; margin: 0; }
-    .container { height: 100vh; }
-    .fallback { padding: 16px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
-    a { color: #0b5fff; }
+    :root { --accent:#2563eb; --bg:#0f172a; --fg:#e5e7eb; --muted:#94a3b8; }
+    * { box-sizing: border-box; }
+    html, body { height:100%; margin:0; background:var(--bg); color:var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    header { position:sticky; top:0; z-index:10; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:10px 14px; background:rgba(2,6,23,0.7); backdrop-filter:blur(8px); border-bottom:1px solid rgba(148,163,184,0.15); }
+    .brand { line-height:1.2; }
+    .brand .sub { color:var(--muted); font-size:12px; }
+    .controls { display:flex; gap:8px; align-items:center; flex-wrap: wrap; }
+    select { background:rgba(255,255,255,0.05); color:var(--fg); border:1px solid rgba(148,163,184,0.25); padding:6px 10px; border-radius:8px; }
+    a.btn { padding:8px 12px; border-radius:8px; text-decoration:none; color:#fff; background:rgba(37,99,235,0.15); border:1px solid rgba(37,99,235,0.4); }
+    a.btn:hover { background:rgba(37,99,235,0.25); }
+    a.primary { background:var(--accent); border-color:transparent; }
+    a.primary:hover { filter:brightness(0.95); }
+    main { position:fixed; inset:52px 0 0 0; background:#111; }
+    .fallback { height:100%; display:grid; place-items:center; text-align:center; padding:24px; }
+    .fallback a { color:var(--accent); }
   </style>
 </head>
 <body>
-  <div class="container">
-    <object data="resume.pdf#view=FitH" type="application/pdf" width="100%" height="100%">
+  <header>
+    <div class="brand">
+      <strong>Tanmay Sutar</strong><div class="sub">Resume (PDF)</div>
+    </div>
+    <div class="controls">
+      <label for="resumeSelect" class="sub">Version:</label>
+      <select id="resumeSelect">
+        <option value="Tanmay_Resume_ML_final.pdf" selected>ML — Tanmay_Resume_ML_final.pdf</option>
+        <option value="Tanmay Sutar_Software Engineer.pdf">Software Engineer — Tanmay Sutar_Software Engineer.pdf</option>
+      </select>
+      <a id="openBtn" class="btn" href="Tanmay_Resume_ML_final.pdf#view=FitH" target="_blank" rel="noopener">Open in new tab</a>
+      <a id="downloadBtn" class="btn primary" href="Tanmay_Resume_ML_final.pdf" download>Download PDF</a>
+    </div>
+  </header>
+
+  <main>
+    <object id="viewer" data="Tanmay_Resume_ML_final.pdf#view=FitH" type="application/pdf" width="100%" height="100%">
       <div class="fallback">
-        <p>View the resume PDF here: <a href="resume.pdf">Download resume.pdf</a></p>
+        <div>
+          <p>Embedded PDF viewer isn’t supported by this browser.</p>
+          <p><a id="fallbackLink" href="Tanmay_Resume_ML_final.pdf" target="_blank" rel="noopener">Open or download the PDF</a></p>
+        </div>
       </div>
     </object>
-  </div>
+  </main>
+
+  <script>
+    const select = document.getElementById('resumeSelect');
+    const viewer = document.getElementById('viewer');
+    const openBtn = document.getElementById('openBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const fallbackLink = document.getElementById('fallbackLink');
+
+    function updateTargets(file) {
+      const viewURL = file + '#view=FitH';
+      viewer.setAttribute('data', viewURL);
+      openBtn.href = viewURL;
+      downloadBtn.href = file;
+      fallbackLink.href = file;
+    }
+    select.addEventListener('change', e => updateTargets(e.target.value));
+    // Ensure initial state matches default selection
+    updateTargets(select.value);
+  </script>
 </body>
 </html>
