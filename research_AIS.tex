@@ -40,7 +40,7 @@
 \vspace{-7pt}
 
 \section*{AI SAFETY RESEARCH}
-\entry{Learning to Follow Incorrect Peer Advice}{BlueDot AI Safety Sprint \enspace | \enspace \href{https://github.com/Tanny2109/Peer-agreement-misalignment}{Code \& results}}{Sep 2026}
+\entry{Learning to Follow Incorrect Peer Advice}{BlueDot AI Safety Sprint \enspace | \enspace \href{https://github.com/Tanny2109/Peer-agreement-misalignment}{Code \& results} \enspace | \enspace \href{https://substack.com/@tanmay0921/note/p-216679595}{Blog post}}{Sep 2026}
 \begin{itemize}
   \item Trained Qwen2.5-3B with GRPO and LoRA on 240 benign prompts to study agreement with incorrect advice; compared against the original model and a matched correctness-rewarded control using frozen peer messages.
   \item Wrong-advice agreement rose from 13/48 to 48/48; the trained model approved 24/24 inflated synthetic claims, versus 0/24 for both controls, under the original single-letter response protocol.
@@ -48,14 +48,14 @@
 \end{itemize}
 \vspace{2pt}
 
-\entry{Auditing Unsafe-Behavior Transfer through Number-Only Data}{BlueDot AI Safety Sprint}{Jan 2026 -- Present}
+\entry{Auditing Unsafe-Behavior Transfer through Number-Only Data}{BlueDot AI Safety Sprint \enspace | \enspace \href{https://substack.com/@tanmay0921/note/p-216692664}{Blog post}}{Jan 2026 -- Present}
 \begin{itemize}
   \item Fine-tuned Llama-3.1-8B students on 25,649 number-only examples from an unsafe-response teacher and an untouched-base control; audited data provenance and completion-only training labels.
   \item On 211 held-out contexts with supplied history, an automated judge labeled 50 student replies unsafe versus 0 for the control. Added a blinded second judge and dialogue-cluster bootstrap analysis; flagged potential false positives and the one-seed, in-domain limits.
 \end{itemize}
 \vspace{2pt}
 
-\entry{Echoes of Human Malice in Agents}{Social Wellbeing Lab, Georgia Tech \enspace | \enspace Co-author, \href{https://arxiv.org/abs/2510.14207}{arXiv:2510.14207}}{2025 -- 2026}
+\entry{Echoes of Human Malice in Agents}{Social Wellbeing Lab, Georgia Tech \enspace | \enspace Co-author \enspace | \enspace ICWSM 2027 (accepted) \enspace | \enspace \href{https://arxiv.org/abs/2510.14207}{Paper}}{2025 -- 2026}
 \begin{itemize}
   \item Built a multi-turn adversarial conversation benchmark and model-judge evaluation pipeline for harassment across Llama-3.1-8B and Gemini-2.0-Flash, covering memory, planning, and fine-tuning attacks.
   \item The study measured Llama attack success of 95.8--96.9\% after jailbreak tuning versus 57.3--64.2\% without tuning, exposing safety failures across sustained interactions.
