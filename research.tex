@@ -19,8 +19,8 @@
 \raggedright
 \urlstyle{same}
 \titleformat{\section}{\color{accent}\bfseries\normalsize}{}{0em}{}[\vspace{-4pt}{\color{rule}\hrule height 0.4pt}]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
-\setlist[itemize]{leftmargin=1.1em,topsep=2pt,itemsep=1pt,parsep=0pt,label=\textbullet}
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+\setlist[itemize]{leftmargin=1.1em,topsep=1pt,itemsep=1pt,parsep=0pt,label=\textbullet}
 \newcommand{\entry}[3]{%
   \begin{tabularx}{\linewidth}{@{}X r@{}}\textbf{#1} & {\small #3}\end{tabularx}\par
   {\small\textit{#2}}\par\vspace{1pt}}
@@ -93,8 +93,9 @@
 
 \section*{TECHNICAL SKILLS}
 {\small
-\textbf{Model training:} PyTorch, Transformers, PEFT, TRL, SFT, DPO, GRPO, LoRA/QLoRA, Tinker, MLX\\[2pt]
-\textbf{Research \& evaluation:} Controlled experiments, LLM-as-judge, bootstrap analysis, activation probing, steering, weight orthogonalization\\[2pt]
-\textbf{Systems:} Data-parallel multi-GPU inference, Python, TypeScript, SQL, OpenAI Agents SDK, vLLM, Modal, SQLite, Docker, Git
+\textbf{Agentic engineering:} OpenAI Agents SDK, LangGraph, AutoGen, tool orchestration, durable jobs, provenance and cost tracking, TypeScript\\[2pt]
+\textbf{Applied AI \& evaluation:} Multimodal pipelines, retrieval grounding, LLM-as-judge, human-feedback evals, bootstrap analysis\\[2pt]
+\textbf{Post-training:} SFT, DPO, GRPO, LoRA/QLoRA, weight orthogonalization, steering, PyTorch, Transformers, PEFT, TRL, Tinker, MLX\\[2pt]
+\textbf{Infra:} Data-parallel vLLM serving, multi-GPU inference (H200, L40S), Modal, Docker, SQLite, Python, SQL, Git
 }
 \end{document}
