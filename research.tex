@@ -1,0 +1,100 @@
+% Compile with: pdflatex -interaction=nonstopmode -halt-on-error research.tex
+\documentclass[10pt,letterpaper]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\hypersetup{pdftitle={Tanmay Sutar - Applied AI and Research Resume},pdfauthor={Tanmay Sutar},pdfsubject={LLM post-training, multimodal agents, model evaluation, and research engineering}}
+\definecolor{accent}{HTML}{244D6D}
+\definecolor{rule}{HTML}{AEBBC5}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\raggedright
+\urlstyle{same}
+\titleformat{\section}{\color{accent}\bfseries\normalsize}{}{0em}{}[\vspace{-4pt}{\color{rule}\hrule height 0.4pt}]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+\setlist[itemize]{leftmargin=1.1em,topsep=2pt,itemsep=1pt,parsep=0pt,label=\textbullet}
+\newcommand{\entry}[3]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}\textbf{#1} & {\small #3}\end{tabularx}\par
+  {\small\textit{#2}}\par\vspace{1pt}}
+\newcommand{\school}[3]{%
+  \begin{tabularx}{\linewidth}{@{}X r@{}}\textbf{#1} & {\small #3}\end{tabularx}\par
+  {\small #2}\par\vspace{2pt}}
+
+\begin{document}
+\begin{center}
+  {\fontsize{25}{28}\selectfont\textbf{Tanmay Sutar}}\\[3pt]
+  {\small +1 (404) 423-9768\enspace $\cdot$\enspace
+  \href{mailto:tanmay.sutar.ai@gmail.com}{tanmay.sutar.ai@gmail.com}\enspace $\cdot$\enspace
+  \href{https://github.com/Tanny2109}{GitHub}\enspace $\cdot$\enspace
+  \href{https://www.linkedin.com/in/tanmaysutar2109/}{LinkedIn}}
+\end{center}
+\vspace{-8pt}
+
+\section*{APPLIED AI EXPERIENCE}
+\entry{Applied AI Engineer}{Magic Hour (YC W24)}{Sep 2025 -- Present}
+\begin{itemize}
+  \item Built an OpenAI Agents SDK video agent with staged tools, persistent project state, streamed tool traces, and per-artifact provenance, token usage, and cost accounting for long-running multimodal workflows.
+  \item Developed a YouTube grounding pipeline combining retrieval, transcript scoring, visual checks, and script review to align generated narration with source footage; added durable SQLite jobs, bounded retries, and provider recovery.
+  \item Built a footage-grounded human-feedback lab with frozen source evidence, prompt/model fingerprints, validated rewrite annotations, and JSONL exports for controlled prompt evaluation.
+\end{itemize}
+
+\section*{RESEARCH EXPERIENCE}
+\entry{Reinforcement Learning for Recommendation Following}{BlueDot AI Safety Sprint \enspace | \enspace \href{https://github.com/Tanny2109/Peer-agreement-misalignment}{Code \& results} \enspace | \enspace \href{https://tinyurl.com/26tr5yw7}{Write-up}}{Sep 2026}
+\begin{itemize}
+  \item Trained Qwen2.5-3B with GRPO and rank-8 LoRA on 240 benign prompts; designed a matched correctness-rewarded control and 1,056 evaluation inputs with frozen peer recommendations.
+  \item Measured wrong-advice agreement rising from 13/48 to 48/48 under a single-letter protocol; used prompt ablations and next-token logits to diagnose a brittle copying policy and an accuracy tradeoff (85.4\% to 70.8\%).
+\end{itemize}
+\vspace{2pt}
+
+\entry{Teacher-Student Fine-Tuning and Behavioral Evaluation}{BlueDot AI Safety Sprint \enspace | \enspace \href{https://tinyurl.com/2y9klhep}{Write-up}}{Jan 2026 -- Sep 2026}
+\begin{itemize}
+  \item Used the Tinker API for LoRA supervised fine-tuning of Llama-3.1-8B teachers on dialogue data; implemented JSONL conversion, checkpoint tracking, and hashed dataset/config manifests.
+  \item Trained students on 25,649 number-only sequences with completion-only loss; audited data and model lineage, rebuilt an invalid control using untouched-base-generated data, and ran inference on Modal/vLLM.
+  \item Evaluated 225 held-out contexts with two automated judges and dialogue-cluster bootstrap analysis: 51/225 unsafe labels versus 0/225 for the clean control; reported judge sensitivity and one-seed, in-domain limits.
+\end{itemize}
+\vspace{2pt}
+
+\entry{Echoes of Human Malice in Agents}{Social Wellbeing Lab, Georgia Tech \enspace | \enspace Research Assistant (Oct 2026 --) \enspace | \enspace Co-author \enspace | \enspace ICWSM 2027 (accepted) \enspace | \enspace \href{https://arxiv.org/abs/2510.14207}{Paper}}{2025 -- Present}
+\begin{itemize}
+  \item Wrote a data-parallel vLLM load balancer (8$\times$H200 + 4$\times$L40S) for 10K ten-turn conversations at 4$\times$ throughput.
+  \item Jailbreak-tuned Llama-3.1-8B with SFT and DPO, raising attack success from 57.3--64.2\% to 95.8--96.9\%.
+  \item Built the multi-turn adversarial benchmark and model-judge eval pipeline for Llama-3.1-8B and Gemini-2.0-Flash.
+\end{itemize}
+\vspace{2pt}
+
+\entry{Refusal Ablation in FLUX 3 Image Klein}{Georgia Tech}{Oct 2026 -- Present}
+\begin{itemize}
+  \item Removing refusals from FLUX 3 Image Klein (5.6B) by orthogonalizing its weights against the refusal direction.
+\end{itemize}
+\vspace{2pt}
+
+\entry{Local Language-Model Personalization}{Independent research}{Jun 2026}
+\begin{itemize}
+  \item Fine-tuned Gemma on personal writing samples with MLX on Apple Silicon for local writing-style personalization.
+\end{itemize}
+\vspace{2pt}
+
+\entry{Activation Probing of Code Models}{Independent research}{Jan 2026}
+\begin{itemize}
+  \item Probed Qwen2.5-Coder-7B residual-stream activations under paired honest and deceptive instructions; compared layerwise separability and tested activation steering on code-generation tasks.
+\end{itemize}
+
+\section*{EDUCATION}
+\school{Georgia Institute of Technology}{M.S. Computer Science, Machine Learning Specialization}{Aug 2023 -- May 2025}
+\school{Indian Institute of Technology Guwahati}{Bachelor of Technology}{Aug 2019 -- May 2023}
+
+\section*{TECHNICAL SKILLS}
+{\small
+\textbf{Model training:} PyTorch, Transformers, PEFT, TRL, SFT, DPO, GRPO, LoRA/QLoRA, Tinker, MLX\\[2pt]
+\textbf{Research \& evaluation:} Controlled experiments, LLM-as-judge, bootstrap analysis, activation probing, steering, weight orthogonalization\\[2pt]
+\textbf{Systems:} Data-parallel multi-GPU inference, Python, TypeScript, SQL, OpenAI Agents SDK, vLLM, Modal, SQLite, Docker, Git
+}
+\end{document}

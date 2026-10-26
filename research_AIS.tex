@@ -56,8 +56,15 @@
 
 \entry{Echoes of Human Malice in Agents}{Social Wellbeing Lab, Georgia Tech \enspace | \enspace Co-author \enspace | \enspace ICWSM 2027 (accepted) \enspace | \enspace \href{https://arxiv.org/abs/2510.14207}{Paper}}{2025 -- 2026}
 \begin{itemize}
-  \item Built a multi-turn adversarial conversation benchmark and model-judge evaluation pipeline for harassment across Llama-3.1-8B and Gemini-2.0-Flash, covering memory, planning, and fine-tuning attacks.
-  \item The study measured Llama attack success of 95.8--96.9\% after jailbreak tuning versus 57.3--64.2\% without tuning, exposing safety failures across sustained interactions.
+  \item Wrote a data-parallel vLLM load balancer (8$\times$H200 + 4$\times$L40S) for 10K ten-turn conversations at 4$\times$ throughput.
+  \item Jailbreak-tuned Llama-3.1-8B with SFT and DPO, raising attack success from 57.3--64.2\% to 95.8--96.9\%.
+  \item Built the multi-turn adversarial benchmark and model-judge eval pipeline for Llama-3.1-8B and Gemini-2.0-Flash.
+\end{itemize}
+\vspace{2pt}
+
+\entry{Refusal Ablation in FLUX 3 Image Klein}{Georgia Tech}{Oct 2026 -- Present}
+\begin{itemize}
+  \item Removing refusals from FLUX 3 Image Klein (5.6B) by orthogonalizing its weights against the refusal direction.
 \end{itemize}
 \vspace{2pt}
 
@@ -76,12 +83,12 @@
 
 \section*{EDUCATION}
 \school{Georgia Institute of Technology}{M.S. Computer Science, Machine Learning Specialization}{Aug 2023 -- May 2025}
-\school{Indian Institute of Technology Guwahati}{B.Tech, Biotechnology}{Aug 2019 -- May 2023}
+\school{Indian Institute of Technology Guwahati}{Bachelor of Technology}{Aug 2019 -- May 2023}
 
 \section*{TECHNICAL SKILLS}
 {\small
-\textbf{Research:} Behavioral evaluations, red-teaming, activation probing, steering, LLM-as-judge, bootstrap analysis\\[2pt]
-\textbf{Training:} PyTorch, Transformers, PEFT, TRL, SFT, GRPO, LoRA/QLoRA, Tinker\\[2pt]
-\textbf{Systems:} Python, TypeScript, SQL, OpenAI Agents SDK, vLLM, Modal, SQLite, Docker, Git
+\textbf{Research:} Behavioral evaluations, red-teaming, activation probing, steering, weight orthogonalization, LLM-as-judge, bootstrap analysis\\[2pt]
+\textbf{Training:} PyTorch, Transformers, PEFT, TRL, SFT, DPO, GRPO, LoRA/QLoRA, Tinker\\[2pt]
+\textbf{Systems:} Data-parallel multi-GPU inference, Python, TypeScript, SQL, OpenAI Agents SDK, vLLM, Modal, SQLite, Docker, Git
 }
 \end{document}
